@@ -3,7 +3,7 @@
 
 ## **Realizado** ✔
 ---
-### **_Tareas de Desarrollo_**
+### **_Tareas_**
 
 **1. (29/09/22):** *Modelo de Usuarios. ✔*
 
@@ -15,14 +15,14 @@
 
 **5. (02/10/22):** *Configuracion del puerto. ✔*
 
-**6. (02/10/22):** *02-10-22: Conexion con la base de datos. ✔*
+**6. (02/10/22):** *Conexion con la base de datos. ✔*
 
-**7. (03/10/22):** *02-10-22: Se Creo rutas para Usuarios. ✔*
+**7. (03/10/22):** *Se Creo rutas para Usuarios. ✔*
 
-**8. (03/10/22):** *03-10-22: Se trabajo en las rutas GET, POST, PUT, DELETE para los usuarios. ✔*
+**8. (03/10/22):** *Se trabajo en las rutas GET, POST, PUT, DELETE para los usuarios. ✔*
 
 **9. (03/10/22):** *Se Creo controladores para las rutas de Usuarios. ✔*
 
-**10. (03/10/22):**  *Se creo el archivo request.http para realizar peticiones a la base de datos y probar si la conexion fue correcta. ✔*
+**10. (03/10/22):**  *Se creo y configuro el archivo request.http para realizar peticiones a la base de datos y probar si la conexion fue correcta. ✔*
 
 

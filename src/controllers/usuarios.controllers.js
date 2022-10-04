@@ -1,3 +1,4 @@
+const { discriminators } = require('../models/Usuarios.js');
 const Usuarios = require ('../models/Usuarios.js')
 
 const ctrlUsuarios = {};
@@ -43,7 +44,10 @@ ctrlUsuarios.deleteUsuario = (req, res) => {
     const { id } = req.params;
     Usuarios
         .remove({_id: id})
-        .then((datos) => res.json(datos))
+        .then((datos) => res.json({
+            msg:'Se elimino correctamente el usuario',
+            datos
+        }))
         .catch((error) => res.json({ message: error}));
 }
 
