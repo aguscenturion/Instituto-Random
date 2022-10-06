@@ -2,8 +2,14 @@ const mongoose = require ('mongoose');
 
 const carrerasSchema = mongoose.Schema(
     {
-        nombreCarrera: {type: String,required: true,},
-        activo: {type: Boolean,default: true,},
+        nombreCarrera: {
+            type: String,
+            required: true,
+            },
+        activo: {
+            type: Boolean,
+            default: true,
+            },
     }
 )
 
