@@ -2,7 +2,11 @@ const express = require('express');
 const morgan = require('morgan');
 const helmet = require('helmet');
 const cors = require('cors');
-const usuariosRoutes = require ('./routes/usuarios.routes.js')
+
+const alumnosRutas = require ('./routes/alumnos.routes.js');
+const profesoresRutas = require ('./routes/profesores.routes.js');
+const administradoresRutas = require ('./routes/administradores.routes.js');
+
 const conectarDB = require('./database/connection.js');
 
 //inicializacion
@@ -20,7 +24,10 @@ app.use(cors());
 app.use(morgan('dev'));
 
 app.use(express.json())
-app.use('/api', usuariosRoutes)
+app.use("/api", alumnosRutas)
+app.use("/api", profesoresRutas)
+app.use("/api", administradoresRutas)
+
 
 
 //routes

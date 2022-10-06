@@ -1,11 +1,10 @@
-const { discriminators } = require('../models/Usuarios.js');
-const Usuarios = require ('../models/Usuarios.js')
+const usuariosModel = require ('../models/Usuarios.js')
 
 const ctrlUsuarios = {};
 
 //controlador de crear un usuario
 ctrlUsuarios.postUsuarios = (req, res) => {
-    const usuario = Usuarios(req.body);
+    const usuario = usuariosModel(req.body);
     usuario
         .save()
         .then((datos) => res.json(datos))
@@ -14,7 +13,7 @@ ctrlUsuarios.postUsuarios = (req, res) => {
 
 //controlador de mostrar todos los usuarios
 ctrlUsuarios.getUsuarios = (req, res) => {
-    Usuarios
+    usuariosModel
         .find()
         .then((datos) => res.json(datos))
         .catch((error) => res.json({ message: error}));
@@ -23,7 +22,7 @@ ctrlUsuarios.getUsuarios = (req, res) => {
 //controlador de encontrar un usuario especifico
 ctrlUsuarios.getUsuario = (req, res) => {
     const { id } = req.params;
-    Usuarios
+    usuariosModel
         .findById(id)
         .then((datos) => res.json(datos))
         .catch((error) => res.json({ message: error}));
@@ -33,7 +32,7 @@ ctrlUsuarios.getUsuario = (req, res) => {
 ctrlUsuarios.putUsuario = (req, res) => {
     const { id } = req.params;
     const { nombre, apellido, dni } = req.body;
-    Usuarios
+    usuariosModel
         .updateOne({_id: id}, { $set: {nombre, apellido, dni} })
         .then((datos) => res.json(datos))
         .catch((error) => res.json({ message: error}));
@@ -42,7 +41,7 @@ ctrlUsuarios.putUsuario = (req, res) => {
 //controlador para eliminar un usuario
 ctrlUsuarios.deleteUsuario = (req, res) => {
     const { id } = req.params;
-    Usuarios
+    usuariosModel
         .remove({_id: id})
         .then((datos) => res.json({
             msg:'Se elimino correctamente el usuario',

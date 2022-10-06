@@ -4,34 +4,81 @@
 ####  **USUARIOS**
 ```js
 {
-    nombre: {type: String,required: true},
-    apellido: {type: String,required: true},
-    dni: {type: String,required: true},
-    email: {type: String,required: true},
-    contrasena: {type: String,required: true},
+    nombre: {
+        type: String,
+        required: true
+        },
+    apellido: {
+        type: String,
+        required: true
+        },
+    email: {
+        type: String,
+        required: true
+        },
+    dni: {
+        type: String,
+        required: true
+        },
+    contrasenia: {
+        type: String,
+        required: true
+        },
+    fotoPerfil:{
+        type: String,
+        required: true
+    },
     Perfiles [
         {
             tipo: [
                 {
-                    alumno:{type: Boolean,default: true},
-                    profesor:{type: Boolean,default: false},
-                    administrados:{type: Boolean,default: false},
+                    alumno:{
+                        type: Boolean,
+                        default: true
+                        },
+                    profesor:{
+                        type: Boolean,
+                        default: false
+                        },
+                    admin:{
+                        type: Boolean,
+                        default: false
+                        },
                 }
             ],
-            dataAlumno:[
+            datosAlumnos:[
                 {
-                    carrera:{type: String}, 
-                    analitico: {type: String},
-                    certificadoDomicilio: {type: String},
+                    carrera:{
+                        type: String
+                        }, 
+                    analitico: {
+                        type: String
+                        },
+                    certificadoDomicilio: {
+                        type: String
+                        },
                 }
             ],
-            dataProfesores:[{datos: {type: String}}
+            datosProfesores:[
+                {
+                    datos: {
+                        type: String
+                        },
+                }
             ],
-            dataAdmin:[{datos: {type: String},}
+            datosAdmin:[
+                {
+                    datos: {
+                        type: String
+                        },
+                }
             ]
         }
     ],
-    activo: {type: Boolean,default: true}
+    activo: {
+        type: Boolean,
+        default: true
+    }
 }
 ```
 ####  **MATERIAS**

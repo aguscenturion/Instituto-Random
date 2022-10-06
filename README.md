@@ -5,13 +5,13 @@
 ---
 ### **_Tareas_**
 
-**1. (29/09/22):** *Modelo de Usuarios. ✔*
+**1. (29/09/22):** *Se creo el Modelo de Usuarios. ✔*
 
-**2. (29/09/22):** *Modelo de Materias. ✔*
+**2. (29/09/22):** *Se creo el Modelo de Materias. ✔*
 
-**3. (29/09/22):** *Modelo de Carreras. ✔*
+**3. (29/09/22):** *Se creo el Modelo de Carreras. ✔*
 
-**4. (29/09/22):** *Modelo de Publicaciones. ✔*
+**4. (29/09/22):** *Se creo el Modelo de Publicaciones. ✔*
 
 **5. (02/10/22):** *Configuracion del puerto. ✔*
 
@@ -24,5 +24,17 @@
 **9. (03/10/22):** *Se Creo controladores para las rutas de Usuarios. ✔*
 
 **10. (03/10/22):**  *Se creo y configuro el archivo request.http para realizar peticiones a la base de datos y probar si la conexion fue correcta. ✔*
+
+**11. (04/10/22):**  *Se creo rutas para Alumnos. ✔*
+
+**12. (04/10/22):**  *Se creo controladores para las rutas de Alumnos. ✔*
+
+**13. (05/10/22):**  *Se creo rutas para Profesores. ✔*
+
+**14. (05/10/22):**  *Se creo controladores para las rutas de Profesores. ✔*
+
+**15. (05/10/22):**  *Se creo rutas para Administradores. ✔*
+
+**16. (05/10/22):**  *Se creo controladores para las rutas de Administradores. ✔*
 
 

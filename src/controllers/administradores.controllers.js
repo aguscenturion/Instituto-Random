@@ -1,9 +1,9 @@
 const usuariosModel = require ('../models/Usuarios.js')
 
-const ctrlAlumnos = {};
+const ctrlAdmin = {};
 
-//controlador de agregar un alumno
-ctrlAlumnos.postAlumnos = (req, res) => {
+//controlador de agregar un administrador
+ctrlAdmin.postAdmins = (req, res) => {
     const {
         nombre,
         apellido,
@@ -15,20 +15,18 @@ ctrlAlumnos.postAlumnos = (req, res) => {
             {
                 tipo:[
                     {
-                        alumno
+                        admin
                     }
                 ],
-                datosAlumnos:[
+                datosAdmin:[
                     {
-                        carrera,
-                        analitico,
-                        certificadoDomicilio
+                        cargo
                     }
                 ]
             }
         ],
     } = req.body
-    const newAlumno = new usuariosModel({
+    const newAdmin = new usuariosModel({
         nombre,
         apellido,
         email,
@@ -39,37 +37,38 @@ ctrlAlumnos.postAlumnos = (req, res) => {
             {
                 tipo:[
                     {
-                        alumno
+                        admin
                     }
                 ],
-                datosAlumnos:[
+                datosAdmin:[
                     {
-                        carrera,
-                        analitico,
-                        certificadoDomicilio
+                        cargo
                     }
                 ]
             }
         ],
     });
-    newAlumno
+    newAdmin
         .save()
         .then((datos) => res.json(datos))
         .catch((error) => res.json({ message: error}));
 }
 
-//controlador de mostrar todos los alumnos
-ctrlAlumnos.getAlumnos = (req, res) => {
+//controlador de mostrar todos los administradores
+ctrlAdmin.getAdmins = (req, res) => {
     usuariosModel
         .find({
-            "perfiles.tipo.alumno": true
+            "perfiles.tipo.admin": true
         })
-        .then((datos) => res.json(datos))
+        .then((datos) => res.json({
+            msg:'Se mostraron correctamente los datos de los administradores',
+            datos
+        }))
         .catch((error) => res.json({ message: error}));
 }
 
-//controlador de encontrar un alumno especifico
-ctrlAlumnos.getAlumno = (req, res) => {
+//controlador de encontrar un administrador especifico
+ctrlAdmin.getAdmin = (req, res) => {
     const { id } = req.params;
     usuariosModel
         .findById(id)
@@ -77,8 +76,8 @@ ctrlAlumnos.getAlumno = (req, res) => {
         .catch((error) => res.json({ message: error}));
 }
 
-//controlador para actualizar un alumno
-ctrlAlumnos.putAlumno = (req, res) => {
+//controlador para actualizar un administrador
+ctrlAdmin.putAdmin = (req, res) => {
     const { id } = req.params;
     const { 
         nombre,
@@ -91,18 +90,16 @@ ctrlAlumnos.putAlumno = (req, res) => {
             {
                 tipo:[
                     {
-                        alumno
+                        admin
                     }
                 ],
-                datosAlumnos:[
+                datosAdmin:[
                     {
-                        carrera,
-                        analitico,
-                        certificadoDomicilio
+                        cargo
                     }
                 ]
             }
-        ], 
+        ],
     } = req.body;
     usuariosModel
         .updateOne({_id: id}, { $set: {
@@ -116,32 +113,30 @@ ctrlAlumnos.putAlumno = (req, res) => {
                 {
                     tipo:[
                         {
-                            alumno
+                            admin
                         }
                     ],
-                    datosAlumnos:[
+                    datosAdmin:[
                         {
-                            carrera,
-                            analitico,
-                            certificadoDomicilio
+                            cargo
                         }
                     ]
                 }
             ],} })
         .then((datos) => res.json({
-            msg:'Se actualizaron correctamente los datos del alumno',
+            msg:'Se actualizaron correctamente los datos del administrador',
             datos
         }))
         .catch((error) => res.json({ message: error}));
 }
 
-//controlador para eliminar un alumno
-ctrlAlumnos.deleteAlumno = (req, res) => {
+//controlador para eliminar un administrador
+ctrlAdmin.deleteAdmin = (req, res) => {
     const { id } = req.params;
     usuariosModel
         .remove({_id: id})
         .then((datos) => res.json({
-            msg:'Se elimino correctamente el alumno',
+            msg:'Se elimino correctamente el administrador',
             datos
         }))
         .catch((error) => res.json({ message: error}));
@@ -149,4 +144,4 @@ ctrlAlumnos.deleteAlumno = (req, res) => {
 
 
 
-module.exports = ctrlAlumnos;
+module.exports = ctrlAdmin;
