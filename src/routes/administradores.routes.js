@@ -1,5 +1,8 @@
 const express = require('express');
 
+const checkRoleAuth = require ('../middleware/roleAuth.middleware')
+const checkAuth = require ('../middleware/auth.middleware')
+
 const { 
     postAdmins,
     getAdmins,
@@ -11,19 +14,19 @@ const {
 const router = express.Router();
 
 //agregar un administrador
-router.post ('/administradores', postAdmins );
+router.post ('/administradores', checkAuth, checkRoleAuth([true]), postAdmins);
 
 //obtener todos los administradores
-router.get ('/administradores', getAdmins);
+router.get ('/administradores', checkAuth, checkRoleAuth([true]), getAdmins);
 
 //encontrar un administrador especifico
-router.get ('/administradores/:id', getAdmin);
+router.get ('/administradores/:id', checkAuth, checkRoleAuth([true]), getAdmin);
 
 //actualizar un administrador especifico
-router.put ('/administradores/:id', putAdmin);
+router.put ('/administradores/:id', checkAuth, checkRoleAuth([true]), putAdmin);
 
 //eliminar un administrador especifico
-router.delete ('/administradores/:id', deleteAdmin);
+router.delete ('/administradores/:id', checkAuth, checkRoleAuth([true]), deleteAdmin);
 
 
 

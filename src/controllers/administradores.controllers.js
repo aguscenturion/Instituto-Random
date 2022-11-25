@@ -134,7 +134,7 @@ ctrlAdmin.putAdmin = (req, res) => {
 ctrlAdmin.deleteAdmin = (req, res) => {
     const { id } = req.params;
     usuariosModel
-        .remove({_id: id})
+        .deleteOne({_id: id})
         .then((datos) => res.json({
             msg:'Se elimino correctamente el administrador',
             datos

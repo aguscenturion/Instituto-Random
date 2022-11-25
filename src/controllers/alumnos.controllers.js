@@ -139,7 +139,7 @@ ctrlAlumnos.putAlumno = (req, res) => {
 ctrlAlumnos.deleteAlumno = (req, res) => {
     const { id } = req.params;
     usuariosModel
-        .remove({_id: id})
+        .deleteOne({_id: id})
         .then((datos) => res.json({
             msg:'Se elimino correctamente el alumno',
             datos

@@ -1,10 +1,10 @@
-const mongoose = require ('mongoose');
+const { Schema, model } = require ('mongoose');
 
-const publicacionesSchema = mongoose.Schema(
+const publicacionesSchema = new Schema(
     {
         autorNombre: {
             type: Schema.Types.ObjectId,
-            ref: "User",
+            ref: "usuariosModel",
             },
         tipo: {
             type: String,
@@ -16,25 +16,31 @@ const publicacionesSchema = mongoose.Schema(
             },
         fecha: {
             type: Date,
-            required: true,
+            default: Date.now(),
             },
-        imagenURL: {
+        fotoPortada: {
             type: String,
             },
         comentarios: [
             {
             autor: {
                 type: Schema.Types.ObjectId,
-                ref: "User",
+                ref: "usuariosModel",
                 },
             descripcion: {
                 type: String,
-                required: true,
                 },
+            fechaComentario: {
+                type: Date,
+                default: Date.now()
             },
+            },
+            {
+                timestamps: true,
+            }
         ]
     }
 )
 
 
-module.exports = mongoose.model('Publicaciones', publicacionesSchema);
+module.exports = model('Publicaciones', publicacionesSchema);

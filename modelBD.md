@@ -173,7 +173,7 @@
         type: Boolean,
         default: true,
         },
-},
+}
 ```
 ####  **PUBLICACIONES**
 ```js

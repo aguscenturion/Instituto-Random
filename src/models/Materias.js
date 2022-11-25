@@ -2,20 +2,20 @@ const mongoose = require ('mongoose');
 
 const materiasSchema = mongoose.Schema(
   {
-    descripcionMateria: {
+    nombreMateria: {
         type: String,
         require: true,
         },
     profTitular: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'usuariosModel'
         },
     profAux: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'usuariosModel'
         },
     carrera: {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: "Carreras"
         },
     anio: {
@@ -34,7 +34,7 @@ const materiasSchema = mongoose.Schema(
         {
             Alumno: {
                 type: mongoose.Schema.Types.ObjectId,
-                ref: 'User'
+                ref: 'usuariosModel'
                 },
             parcial1:{
                 type: String,
@@ -68,7 +68,7 @@ const materiasSchema = mongoose.Schema(
         type: Date,
         },
       idUser:{
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: "User",
         },
     },

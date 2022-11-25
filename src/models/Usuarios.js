@@ -79,6 +79,14 @@ const usuarioSchema = mongoose.Schema({
     }
 });
 
+/* usuarioSchema.set('toJSON', {
+    transform: (document, returnedObject ) => {
+        returnedObject.id = returnedObject._id
+        delete returnedObject._id
+        delete returnedObject._v   
+    }
+}) */
+
         
 
-module.exports = mongoose.model('Usuarios', usuarioSchema);
+module.exports = mongoose.model('usuariosModel', usuarioSchema);
